@@ -23,7 +23,7 @@ namespace Bulky.DataAccess.Repository
 
         public void Update(OrderHeader orderHeader)
         {
-            _db.Update(orderHeader);
+            _db.OrderHeaders.Update(orderHeader);
         }
 
         public void UpdateOrderStatus(int id, string orderStatus, string? paymentStatus = null)

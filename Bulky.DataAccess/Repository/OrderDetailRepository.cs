@@ -23,7 +23,7 @@ namespace Bulky.DataAccess.Repository
 
         public void Update(OrderDetail orderDetail)
         {
-            _db.Update(orderDetail);
+            _db.OrderDetails.Update(orderDetail);
         }
     }
 }

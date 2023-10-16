@@ -33,8 +33,11 @@ namespace BulkyWeb.Areas.Customer.Controllers
 				properties: "Product"),
 				OrderHeader = new()
 			};
+			// include the images to each product
+			IEnumerable<ProductImage> productImages = _unitOfWork.ProductImage.GetAll();
 			foreach (var cart in ShoppingCartVM.ShoppingCartList)
 			{
+				cart.Product.ProductImages = productImages.Where(u => u.ProductId == cart.Product.Id).ToList();
 				cart.Price = GetPricePassedOnQuantity(cart);
 				ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
 			}
@@ -134,9 +137,11 @@ namespace BulkyWeb.Areas.Customer.Controllers
 			//////////////////////// PAYMENT /////////////////////////
 			if (applicationUser.CompanyId.GetValueOrDefault() == 0)
 			{
-				//regular customer
-				//stripe logic
-				var domain = "https://localhost:7025/";
+                //regular customer
+                //stripe logic
+                //var domain = "https://localhost:7025/";
+
+                var domain = Request.Scheme+ "://"+Request.Host.Value+"/";
 				// from stripe document
 				var options = new SessionCreateOptions
 				{

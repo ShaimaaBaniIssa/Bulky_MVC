@@ -22,10 +22,14 @@ namespace Bulky.DataAccess.Data
         public DbSet<Company> Companies { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<OrderHeader> OrderHeaders { get; set; }
-       
+        public DbSet<ProductImage> ProductImages { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //keys of identity table are mapped in the on model creating of IdentityDbContext
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Category>().HasData(
@@ -49,7 +53,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 85,
                     Price100 = 80,
                     CategoryId = 1,
-                    ImageUrl = ""
+                   
                 },
                 new Product
                 {
@@ -63,7 +67,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 25,
                     Price100 = 20,
                     CategoryId = 1,
-                    ImageUrl = ""
+                  
                 },
                 new Product
                 {
@@ -77,7 +81,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 40,
                     Price100 = 35,
                     CategoryId = 2,
-                    ImageUrl = ""
+                   
                 },
                 new Product
                 {
@@ -91,7 +95,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 60,
                     Price100 = 55,
                     CategoryId = 1,
-                    ImageUrl = ""
+                  
                 },
                 new Product
                 {
@@ -105,7 +109,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 25,
                     Price100 = 20,
                     CategoryId = 3,
-                    ImageUrl = ""
+                   
                 },
                 new Product
                 {
@@ -119,7 +123,7 @@ namespace Bulky.DataAccess.Data
                     Price50 = 22,
                     Price100 = 20,
                     CategoryId = 3,
-                    ImageUrl = ""
+                    
                 });
             modelBuilder.Entity<Company>().HasData(
                new Company

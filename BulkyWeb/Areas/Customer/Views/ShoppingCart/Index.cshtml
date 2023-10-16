@@ -24,7 +24,17 @@
 
                     <div class="row border-bottom pb-3">
                         <div class="d-none d-lg-block col-lg-1 text-center py-2">
-                            <img src=@obj.Product.ImageUrl class="rounded" width="100%" />
+                                @if (obj.Product.ProductImages != null && obj.Product.ProductImages.Count() > 0)
+                                {
+                                    <img src="@obj.Product.ProductImages.FirstOrDefault().ImageUrl" class="rounded" width="70"/>
+
+                                }
+                                else
+                                {
+                                    <img src="https://placehold.co/500x600/png" class="rounded" />
+
+                                }
+                           
                         </div>
                         <div class="col-12 col-lg-6 pt-md-3">
                             <h5 class="text-uppercase text-secondary"><strong>@obj.Product.Title</strong></h5>

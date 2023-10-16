@@ -17,7 +17,7 @@ namespace Bulky.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0-preview.7.23375.4")
+                .HasAnnotation("ProductVersion", "7.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -127,170 +127,7 @@ namespace Bulky.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Bulky.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ISBN")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ListPrice")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price100")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Price50")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Author = "Billy Spark",
-                            CategoryId = 1,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "SWD9999001",
-                            ImageUrl = "",
-                            ListPrice = 99.0,
-                            Price = 90.0,
-                            Price100 = 80.0,
-                            Price50 = 85.0,
-                            Title = "Fortune of Time"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Author = "Nancy Hoover",
-                            CategoryId = 1,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "CAW777777701",
-                            ImageUrl = "",
-                            ListPrice = 40.0,
-                            Price = 30.0,
-                            Price100 = 20.0,
-                            Price50 = 25.0,
-                            Title = "Dark Skies"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Author = "Julian Button",
-                            CategoryId = 2,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "RITO5555501",
-                            ImageUrl = "",
-                            ListPrice = 55.0,
-                            Price = 50.0,
-                            Price100 = 35.0,
-                            Price50 = 40.0,
-                            Title = "Vanish in the Sunset"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Author = "Abby Muscles",
-                            CategoryId = 1,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "WS3333333301",
-                            ImageUrl = "",
-                            ListPrice = 70.0,
-                            Price = 65.0,
-                            Price100 = 55.0,
-                            Price50 = 60.0,
-                            Title = "Cotton Candy"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Author = "Ron Parker",
-                            CategoryId = 3,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "SOTJ1111111101",
-                            ImageUrl = "",
-                            ListPrice = 30.0,
-                            Price = 27.0,
-                            Price100 = 20.0,
-                            Price50 = 25.0,
-                            Title = "Rock in the Ocean"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Author = "Laura Phantom",
-                            CategoryId = 3,
-                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
-                            ISBN = "FOT000000001",
-                            ImageUrl = "",
-                            ListPrice = 25.0,
-                            Price = 23.0,
-                            Price100 = 20.0,
-                            Price50 = 22.0,
-                            Title = "Leaves and Wonders"
-                        });
-                });
-
-            modelBuilder.Entity("Bulky.Models.ShoppingCart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Carts");
-                });
-
-            modelBuilder.Entity("Bulky.Models.ViewModels.OrderDetail", b =>
+            modelBuilder.Entity("Bulky.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -319,7 +156,7 @@ namespace Bulky.DataAccess.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("Bulky.Models.ViewModels.OrderHeader", b =>
+            modelBuilder.Entity("Bulky.Models.OrderHeader", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -354,8 +191,8 @@ namespace Bulky.DataAccess.Migrations
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("PaymentDueDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("PaymentDueDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PaymentIntentId")
                         .HasColumnType("nvarchar(max)");
@@ -393,6 +230,181 @@ namespace Bulky.DataAccess.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("OrderHeaders");
+                });
+
+            modelBuilder.Entity("Bulky.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ListPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price100")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price50")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Billy Spark",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SWD9999001",
+                            ListPrice = 99.0,
+                            Price = 90.0,
+                            Price100 = 80.0,
+                            Price50 = 85.0,
+                            Title = "Fortune of Time"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Nancy Hoover",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "CAW777777701",
+                            ListPrice = 40.0,
+                            Price = 30.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "Dark Skies"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "Julian Button",
+                            CategoryId = 2,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "RITO5555501",
+                            ListPrice = 55.0,
+                            Price = 50.0,
+                            Price100 = 35.0,
+                            Price50 = 40.0,
+                            Title = "Vanish in the Sunset"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Author = "Abby Muscles",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "WS3333333301",
+                            ListPrice = 70.0,
+                            Price = 65.0,
+                            Price100 = 55.0,
+                            Price50 = 60.0,
+                            Title = "Cotton Candy"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Author = "Ron Parker",
+                            CategoryId = 3,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SOTJ1111111101",
+                            ListPrice = 30.0,
+                            Price = 27.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "Rock in the Ocean"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Author = "Laura Phantom",
+                            CategoryId = 3,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "FOT000000001",
+                            ListPrice = 25.0,
+                            Price = 23.0,
+                            Price100 = 20.0,
+                            Price50 = 22.0,
+                            Title = "Leaves and Wonders"
+                        });
+                });
+
+            modelBuilder.Entity("Bulky.Models.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("Bulky.Models.ShoppingCart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -461,8 +473,7 @@ namespace Bulky.DataAccess.Migrations
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasMaxLength(21)
-                        .HasColumnType("nvarchar(21)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -610,7 +621,6 @@ namespace Bulky.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CompanyId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -631,6 +641,36 @@ namespace Bulky.DataAccess.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("Bulky.Models.OrderDetail", b =>
+                {
+                    b.HasOne("Bulky.Models.OrderHeader", "OrderHeader")
+                        .WithMany()
+                        .HasForeignKey("OrderHeaderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Bulky.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OrderHeader");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Bulky.Models.OrderHeader", b =>
+                {
+                    b.HasOne("Bulky.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("Bulky.Models.Product", b =>
                 {
                     b.HasOne("Bulky.Models.Category", "Category")
@@ -640,6 +680,17 @@ namespace Bulky.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Bulky.Models.ProductImage", b =>
+                {
+                    b.HasOne("Bulky.Models.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Bulky.Models.ShoppingCart", b =>
@@ -659,36 +710,6 @@ namespace Bulky.DataAccess.Migrations
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Bulky.Models.ViewModels.OrderDetail", b =>
-                {
-                    b.HasOne("Bulky.Models.ViewModels.OrderHeader", "OrderHeader")
-                        .WithMany()
-                        .HasForeignKey("OrderHeaderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Bulky.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("OrderHeader");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Bulky.Models.ViewModels.OrderHeader", b =>
-                {
-                    b.HasOne("Bulky.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -746,11 +767,14 @@ namespace Bulky.DataAccess.Migrations
                 {
                     b.HasOne("Bulky.Models.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyId");
 
                     b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Bulky.Models.Product", b =>
+                {
+                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }
